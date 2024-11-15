@@ -1,0 +1,45 @@
+# Nelson Cybersecurity LLC
+# keyauth.cc
+
+# private
+api/admin/
+api/discord/
+api/upgrade/
+api/status/
+api/dashboard/
+app/pages/admin-panel.php
+app/pages/upgrade.php
+app/pages/support.php
+changeEmail/
+changeUsername/
+deleteAccount/
+forgot/
+owner/
+paddle/
+purge-redis/
+reset/
+resetUser/
+whoami/
+vendor/
+login/accShare/
+login/emailVerify/
+sitemap.xml
+includes/credentials.php
+includes/redis.php
+app/pages/application-functions.php
+app/pages/application-prompts.php
+app/pages/bug-bounty.php
+app/pages/forms.php
+app/pages/staff-panel.php
+
+# purchase KeyAuth enterprise for these files https://shop.keyauth.cc/product/6361c20e415e9
+api/reseller/
+api/seller/
+panel/
+app/pages/manage-accs.php
+app/pages/reseller-balance.php
+app/pages/reseller-licenses.php
+app/pages/reseller-users.php
+app/pages/seller-settings.php
+app/pages/seller-logs.php
+app/pages/webloader.php
