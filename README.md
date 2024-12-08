@@ -3,7 +3,7 @@
 
 # PLUGIN SYSTEM DOCUMENTATION
 
-This document describes the structure and usage of the `game_tick_packet`, which contains the real-time game state in Rocket League. The packet includes information about the ball's position, player stats, team information, game status, and more. It also describes how to format a plugin, and create a plugin. It is fundementally RLBOT API.
+This document describes the structure and usage of the `game_tick_packet`, which contains the real-time game state in Rocket League. The packet includes information about the ball's position, player stats, team information, game status, and more. It also describes how to format a plugin, and create a plugin. It is fundementally RLBOT API. (Made by Bladeee)
 
 
 
