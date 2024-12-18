@@ -238,7 +238,7 @@ class plugin_Get_Ball_xyz:
                     time.sleep(sleep_duration)
 
             except Exception as e:
-                print(f"Error: {e}")
+                self.ConsoleLogger(f"Error {e}")
                 time.sleep(5)
                 self.controller = None
                 pass
@@ -264,16 +264,16 @@ class plugin_Get_Ball_xyz:
         self.ConsoleLogger = ConsoleLogger # Initialize ConsoleLogger variable to print to the gui console
 
     def Name(self):
-        self.ConsoleLogger "Ball location print"
+        self.ConsoleLogger("Ball location print")
     
     def Description(self):
-        self.ConsoleLogger "Constantly prints the ball location!"
+        self.ConsoleLogger("Constantly prints the ball location!")
     
     def Author(self):
-        self.ConsoleLogger "Created by User782"
+        self.ConsoleLogger("Created by User782")
     
     def Version(self):
-        self.ConsoleLogger "V1.1"
+        self.ConsoleLogger("V1.1")
 
     def game_tick_packet_set(self, packet, local_player_index=0, playername="default", process_id=None):
         self.game_tick_packet = packet
@@ -365,16 +365,16 @@ class plugin_Jumping:
         self.ConsoleLogger = ConsoleLogger # Initialize ConsoleLogger variable to print to the gui console
 
     def Name(self):
-        return "Plugin Jumping"
-    
+        self.ConsoleLogger("Plugin Jumping")
+
     def Description(self):
-        return "Jumps whenever the car's wheels are on the ground!"
+        self.ConsoleLogger("Jumps whenever the car's wheels are on the ground!")
     
     def Author(self):
-        return "Created by skiffy"
-    
+        self.ConsoleLogger(""Created by skiffy"")
+
     def Version(self):
-        return "V1.0"
+        self.ConsoleLogger("V1.0")
 
     def game_tick_packet_set(self, packet, local_player_index=0, playername="default", process_id=None):
         self.game_tick_packet = packet
