@@ -1,11 +1,6 @@
-
----
-
 # PLUGIN SYSTEM DOCUMENTATION (Made by Bladeee)
 
-This document describes the structure and usage of the `game_tick_packet`, which contains the real-time game state in Rocket League. The packet includes information about the ball's position, player stats, team information, game status, and more. It also describes how to format a plugin, and create a plugin. It is fundementally RLBOT API.
-
-
+This document describes the structure and usage of the `game_tick_packet`, which contains the real-time game state in Rocket League. The packet includes information about the ball's position, player stats, team information, game status, and more. It also describes how to format a plugin, and create a plugin. It is fundamentally the RLBOT API.
 
 ---
 
@@ -73,7 +68,7 @@ Contains general information about the current game state.
 
 ### Player Information (`game_cars`)
 
-Contains data about each player’s car, such as their position, velocity, rotation, and more. Each player is represented by a `PlayerInfo` object.
+Contains data about each player's car, such as their position, velocity, rotation, and more. Each player is represented by a `PlayerInfo` object.
 
 - **`game_cars[<index>].team`**: The team index of the player (usually 0 for the first team and 1 for the second team).
 - **`game_cars[<index>].physics.location.x`**: The X coordinate of the player's car.
@@ -88,8 +83,8 @@ Contains data about each player’s car, such as their position, velocity, rotat
 - **`game_cars[<index>].physics.angular_velocity.x`**: The angular velocity in the X direction of the player's car.
 - **`game_cars[<index>].physics.angular_velocity.y`**: The angular velocity in the Y direction of the player's car.
 - **`game_cars[<index>].physics.angular_velocity.z`**: The angular velocity in the Z direction of the player's car.
-- **`game_cars[<index>].has_wheel_contact`**: Boolean indicating whether the player’s car has wheel contact (on the ground).
-- **`game_cars[<index>].is_super_sonic`**: Boolean indicating whether the player’s car is supersonic.
+- **`game_cars[<index>].has_wheel_contact`**: Boolean indicating whether the player's car has wheel contact (on the ground).
+- **`game_cars[<index>].is_super_sonic`**: Boolean indicating whether the player's car is supersonic.
 - **`game_cars[<index>].double_jumped`**: Boolean indicating whether the player has double jumped.
 - **`game_cars[<index>].jumped`**: Boolean indicating whether the player has jumped.
 - **`game_cars[<index>].boost`**: The current boost amount of the player's car (percentage from 0 to 100).
@@ -120,7 +115,6 @@ Contains information about each boost pad on the field.
 ```python
 # -- Some Example Usages of the API.
 
-
 # self.player_index would be our up to date index supplied by the API, however you can choose any.
 # Accessing the player's car location (X, Y, Z)
 car_location_x = game_tick_packet.game_cars[player_index].physics.location.x
@@ -142,11 +136,10 @@ self.ConsoleLogger(f"Player's team index: {player_team_index}")
 self.ConsoleLogger(f"Team score: {team_info.score}")
 
 
-
 # Accessing the game tick packet to print ball location
-self.ConsoleLogger("Ball location: X =", game_tick_packet.game_ball.physics.location.x,
-      "Y =", game_tick_packet.game_ball.physics.location.y,
-      "Z =", game_tick_packet.game_ball.physics.location.z)
+self.ConsoleLogger(f"Ball location: X = {game_tick_packet.game_ball.physics.location.x}, "
+                  f"Y = {game_tick_packet.game_ball.physics.location.y}, "
+                  f"Z = {game_tick_packet.game_ball.physics.location.z}")
 
 # Checking if the game has ended
 if game_tick_packet.game_info.is_match_ended:
@@ -154,9 +147,9 @@ if game_tick_packet.game_info.is_match_ended:
 
 # Accessing the first player's information (car)
 first_player = game_tick_packet.game_cars[0]
-self.ConsoleLogger("First player name:", first_player.name)
-self.ConsoleLogger("Boost amount:", first_player.boost)
-self.ConsoleLogger("Car position:", first_player.physics.location.x, first_player.physics.location.y, first_player.physics.location.z)
+self.ConsoleLogger(f"First player name: {first_player.name}")
+self.ConsoleLogger(f"Boost amount: {first_player.boost}")
+self.ConsoleLogger(f"Car position: {first_player.physics.location.x}, {first_player.physics.location.y}, {first_player.physics.location.z}")
 ```
 ---
 
@@ -176,16 +169,16 @@ distance_to_ball = ((car_location_x - ball_location_x) ** 2 +
 
 self.ConsoleLogger(f"Distance to the ball: {distance_to_ball} units")
 ```
----
 
 ---
 
-## Controlling the bot and Plugin Info
+## Controlling the Bot and Plugin Info
 Here is the documentation for the format of the plugin system, how it works, and some basic examples.
-The plugin API provides a recent game tick packet every tick, along with an up-to-date local_player_index and player name. The main() function of your plugin will be called constantly, which is why a time.sleep() is often added to reduce CPU usage or to handle tasks that don’t require real-time precision, such as checking only every few seconds.
+
+The plugin API provides a recent game tick packet every tick, along with an up-to-date local_player_index and player name. The `main()` function of your plugin will be called constantly, which is why a `time.sleep()` is often added to reduce CPU usage or to handle tasks that don't require real-time precision, such as checking only every few seconds.
 
 When creating your own plugin, you must name the class with "plugin_" as the prefix.
-Here’s an example of printing the ball’s location, along with the required name setup and format:
+Here's an example of printing the ball's location, along with the required name setup and format:
 
 ```python
 import time
@@ -229,8 +222,8 @@ class plugin_Get_Ball_xyz:
                 start_time = time.time()
                 if self.game_tick_packet:
                     time.sleep(2)
-                    ball_x_y_Z = f"Ball Location = X {self.game_tick_packet.game_ball.physics.location.x} y = {self.game_tick_packet.game_ball.physics.location.y} z = {self.game_tick_packet.game_ball.physics.location.z}"
-                    self.ConsoleLogger(ball_x_y_Z)
+                    ball_x_y_z = f"Ball Location = X {self.game_tick_packet.game_ball.physics.location.x} y = {self.game_tick_packet.game_ball.physics.location.y} z = {self.game_tick_packet.game_ball.physics.location.z}"
+                    self.ConsoleLogger(ball_x_y_z)
                 # Enforce the frame rate timing to sync the game ticks
                 elapsed_time = time.time() - start_time
                 sleep_duration = frame_duration - elapsed_time
@@ -244,11 +237,11 @@ class plugin_Get_Ball_xyz:
                 pass
 ```
 
-Controlling the Bot
+## Controlling the Bot
 
 You can control your bot's movements using the SimpleControllerState. This allows you to set actions such as moving forward, steering, jumping, and boosting.
 
-The main() function of your plugin will be called constantly, however  your game_tick_packet_set function will be called every tick. This ensures that up-to-date game data and information are provided on every tick.
+The `main()` function of your plugin will be called constantly, however your `game_tick_packet_set` function will be called every tick. This ensures that up-to-date game data and information are provided on every tick.
 
 When creating a plugin and needing to return your own custom controller state, the SimpleControllerState is used.
 
@@ -257,7 +250,7 @@ import time
 from rlbot.agents.base_agent import SimpleControllerState
 
 class plugin_Get_Ball_xyz:
-    def __init__(self, player_index=0):
+    def __init__(self, player_index=0, ConsoleLogger=None):
         self.controller = None
         self.player_index = player_index
         self.game_tick_packet = None  # Initialize game_tick_packet to None
@@ -287,7 +280,7 @@ class plugin_Get_Ball_xyz:
             return None
 ```
 
-This allows us to return a controller state of our own which will overide the bot. Meaning our controller state will be written into memory instead of the bots.
+This allows us to return a controller state of our own which will override the bot's controls. Meaning our controller state will be written into memory instead of the bot's.
 Returning None will tell our bot to continue running instead of writing our custom controller state.
 
 ---
@@ -333,8 +326,8 @@ controller = SimpleControllerState(
     handbrake=False # Not using the handbrake
 )
 self.controller = controller
-
 ```
+
 In the example above:
 
 Steer is set to 0.5, meaning the car will steer to the right at half intensity.
@@ -342,18 +335,15 @@ Throttle is set to 1.0, meaning the car is accelerating forward at full speed.
 Jump is set to True, meaning the bot will jump on this tick.
 Boost and Handbrake are set to False, so the bot will not boost or use the handbrake.
 
-Then in game_tick_packet_set, because we have set self.controller, it will write it into memory instead of the current bot running output. So make sure to set self.controller back to None in order for the bot to then continue running after you have finished writing whatever movements you needed. You can do this by simple checks. 
+Then in `game_tick_packet_set`, because we have set `self.controller`, it will write it into memory instead of the current bot running output. So make sure to set `self.controller` back to None in order for the bot to then continue running after you have finished writing whatever movements you needed. You can do this by simple checks.
 
 ---
 
----
----
 ## Combining everything together. (Creating a basic plugin)
 This plugin demonstrates how to create a simple bot plugin that jumps only when its wheels are on the ground. The bot uses the `SimpleControllerState` to control its jumping behavior.
 
-Returning a `controller_state` will override the bot's controlls in favour of ours. Return `None` to allow the bot to continue running as normal.
+Returning a `controller_state` will override the bot's controls in favor of ours. Return `None` to allow the bot to continue running as normal.
 ```python
-
 import time
 from rlbot.agents.base_agent import SimpleControllerState
 
@@ -371,7 +361,7 @@ class plugin_Jumping:
         self.ConsoleLogger("Jumps whenever the car's wheels are on the ground!")
     
     def Author(self):
-        self.ConsoleLogger(""Created by skiffy"")
+        self.ConsoleLogger("Created by skiffy")
 
     def Version(self):
         self.ConsoleLogger("V1.0")
@@ -381,7 +371,7 @@ class plugin_Jumping:
         self.player_index = local_player_index
         self.pid = process_id
         self.playername = playername
-        #Here we overide the controls with our custom state, or return None to let the play.
+        # Here we override the controls with our custom state, or return None to let the bot play.
         if self.controller: 
             return self.controller
         else:
@@ -399,9 +389,9 @@ class plugin_Jumping:
                     # Jump if wheels are in contact with the ground
                     if player_car.has_wheel_contact:
                         controller.jump = True
-                        self.controller = controller #When conditions are met, we overide the bots controls with ours! 
+                        self.controller = controller # When conditions are met, we override the bot's controls with ours! 
                     else:
-                        self.controller = None #Let's the bot continue to write to memory instead of our custom controller state
+                        self.controller = None # Let's the bot continue to write to memory instead of our custom controller state
 
                 # Small sleep to prevent high CPU usage
                 time.sleep(1 / 120)
@@ -411,9 +401,3 @@ class plugin_Jumping:
                 time.sleep(5)
                 self.controller = None
 ```
-
-
-
----
-
----
