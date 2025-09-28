@@ -12,6 +12,8 @@ This document describes the structure and usage of the `game_tick_packet`, which
   - [Player Information (`game_cars`)](#player-information-game_cars)
   - [Team Information (`teams`)](#team-information-teams)
   - [Boost Pads Information (`game_boosts`)](#boost-pads-information-game_boosts)
+- [Console Logging with Color Support](#console-logging-with-color-support)
+- [Bot Control API](#bot-control-api)
 - [Controlling the Bot and Plugin Info](#controlling-the-bot-and-plugin-info)
 - [Example Usage](#example-usage)
 
@@ -110,6 +112,39 @@ Contains information about each boost pad on the field.
 
 ---
 
+## Console Logging with Color Support
+
+### Single Color Output
+```python
+self.ConsoleLogger("This is a red message", color="red")
+self.ConsoleLogger("This is a green message", color="green")
+```
+
+### Multi-Color Output
+```python
+self.ConsoleLogger("● [STATUS] {red}Error: {white}Connection {yellow}timeout {green}resolved")
+self.ConsoleLogger("● [PLUGIN] {blue}Loading {purple}modules {white}with {cyan}advanced {orange}capabilities")
+```
+
+### Available Colors
+red, green, blue, yellow, orange, purple, cyan, white, black, gray, grey, pink, brown
+
+---
+
+## Bot Control API
+
+```python
+# Enable specific bot
+self.BotController("enable", botname="nexto", source="plugin_name")
+self.BotController("enable", botname="carbon", source="plugin_name") 
+self.BotController("enable", botname="arkangel", source="plugin_name")
+
+# Disable current bot
+self.BotController("disable", source="plugin_name")
+```
+
+---
+
 ## Example Usage
 
 ```python
@@ -185,11 +220,12 @@ import time
 from rlbot.agents.base_agent import SimpleControllerState
 
 class plugin_Get_Ball_xyz:
-    def __init__(self, player_index=0, ConsoleLogger=None):
+    def __init__(self, player_index=0, ConsoleLogger=None, BotController=None):
         self.controller = None
         self.player_index = player_index
         self.game_tick_packet = None  # Initialize game_tick_packet to None
-        self.ConsoleLogger = ConsoleLogger
+        self.ConsoleLogger = ConsoleLogger # Initialize ConsoleLogger variable to print to the gui console
+        self.BotController = BotController
 
     def Name(self):
         self.ConsoleLogger("Ball location print")
@@ -250,11 +286,12 @@ import time
 from rlbot.agents.base_agent import SimpleControllerState
 
 class plugin_Get_Ball_xyz:
-    def __init__(self, player_index=0, ConsoleLogger=None):
+    def __init__(self, player_index=0, ConsoleLogger=None, BotController=None):
         self.controller = None
         self.player_index = player_index
         self.game_tick_packet = None  # Initialize game_tick_packet to None
         self.ConsoleLogger = ConsoleLogger # Initialize ConsoleLogger variable to print to the gui console
+        self.BotController = BotController
 
     def Name(self):
         self.ConsoleLogger("Ball location print")
@@ -351,7 +388,7 @@ class plugin_Jumping:
     def __init__(self, player_index=0, ConsoleLogger=None):
         self.controller = None
         self.player_index = player_index
-        self.game_tick_packet = None
+        self.game_tick_packet = None  # Initialize game_tick_packet to None
         self.ConsoleLogger = ConsoleLogger # Initialize ConsoleLogger variable to print to the gui console
 
     def Name(self):
