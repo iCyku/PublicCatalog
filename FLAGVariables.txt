@@ -5123,7 +5123,7 @@
 [C++] DFIntRuppTokenUpdatePeriodMs
 [C++] DFIntRxRlEn2
 [C++] DFIntRxRlReport
-[C++] DFInt
+[C++] DFIntS2PhysicsSenderRate
 [C++] DFIntSabineTuning
 [C++] DFIntSafeMoveBaseIncrementMillis
 [C++] DFIntSafeMoveGrowthFactorMillis
