@@ -5123,7 +5123,7 @@
 [C++] DFIntRuppTokenUpdatePeriodMs
 [C++] DFIntRxRlEn2
 [C++] DFIntRxRlReport
-[C++] DFIntS2PhysicsSenderRate
+[C++] DFInt
 [C++] DFIntSabineTuning
 [C++] DFIntSafeMoveBaseIncrementMillis
 [C++] DFIntSafeMoveGrowthFactorMillis
@@ -7646,6 +7646,7 @@
 [C++] FFlagDebugNextGenRepAttributeRep
 [C++] FFlagDebugNextGenReplicatorEnabledWriteCFrameColor
 [C++] FFlagDebugNextGenRepUsePropBlacklist
+[C++] FFlagNextGenReplicatorWrite4
 [C++] FFlagDebugOccupancy
 [C++] FFlagDebugOctreeDisableSpatialHashSet
 [C++] FFlagDebugOpenPlaceCreateDataModelError
