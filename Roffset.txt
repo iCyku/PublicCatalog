@@ -170,5 +170,7 @@ VisualEngineToDataModel2=0xabcdef0123456649
 WalkSpeed=0xabcdef012345665d
 WalkSpeedCheck=0xabcdef0123456449
 Workspace=0xabcdef01234566f1
+World=0xabcdef0123456451
+TextureId=0xabcdef01234566b9
 WorkspaceToWorld=0xabcdef0123456451
 viewmatrix=0xabcdef01234566a9
