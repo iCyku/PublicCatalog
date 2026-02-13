@@ -1,4 +1,4 @@
-PhysicsSenderMaxBandwidthBps=0xabcdef01253b9975
+PhysicsSenderMaxBandwidthBps=0xabcdef0125d0fa55
 RobloxVersion=ff0237506880a386eb03751b31ddfac9eb57714635dff99e
 ByfronVersion=b6587a
 Adornee=0xabcdef0123456759
