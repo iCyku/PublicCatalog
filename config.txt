@@ -1,0 +1,64 @@
+[SENSITIVITY: 0.16]
+
+[CONFIG: Legit Preset]
+DESC=Legit description placeholder.
+DISABLES=Disable 1, Disable 2
+humanization_percent=60
+movement_distance_scaling_enabled=1
+x_axis_enabled=1
+y_axis_enabled=1
+y_axis_head_lock_enabled=0
+target_lock_enabled=1
+
+[CONFIG: Semi-Rage Preset]
+DESC=Semi-Rage description placeholder.
+DISABLES=Disable 1, Disable 2
+humanization_percent=25
+movement_distance_scaling_enabled=1
+x_axis_enabled=1
+y_axis_enabled=1
+y_axis_head_lock_enabled=1
+target_lock_enabled=1
+
+[CONFIG: Rage Preset]
+DESC=Rage description placeholder.
+DISABLES=Disable 1, Disable 2
+humanization_percent=0
+movement_distance_scaling_enabled=0
+x_axis_enabled=1
+y_axis_enabled=1
+y_axis_head_lock_enabled=0
+target_lock_enabled=0
+
+
+[SENSITIVITY: 0.35]
+
+[CONFIG: Legit Preset]
+DESC=Legit description placeholder.
+DISABLES=Disable 1, Disable 2
+humanization_percent=65
+movement_distance_scaling_enabled=1
+x_axis_enabled=1
+y_axis_enabled=1
+y_axis_head_lock_enabled=0
+target_lock_enabled=1
+
+[CONFIG: Semi-Rage Preset]
+DESC=Semi-Rage description placeholder.
+DISABLES=Disable 1, Disable 2
+humanization_percent=30
+movement_distance_scaling_enabled=1
+x_axis_enabled=1
+y_axis_enabled=1
+y_axis_head_lock_enabled=1
+target_lock_enabled=1
+
+[CONFIG: Rage Preset]
+DESC=Rage description placeholder.
+DISABLES=Disable 1, Disable 2
+humanization_percent=0
+movement_distance_scaling_enabled=0
+x_axis_enabled=1
+y_axis_enabled=1
+y_axis_head_lock_enabled=0
+target_lock_enabled=0
